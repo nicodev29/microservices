@@ -1,9 +1,8 @@
 package com.microfull.orders.service;
 
-import com.microfull.orders.DTOs.BaseResponse;
-import com.microfull.orders.DTOs.OrderItemRequest;
-import com.microfull.orders.DTOs.OrderRequest;
-import com.microfull.orders.config.WebClientConfig;
+import com.microfull.orders.DTO.BaseResponse;
+import com.microfull.orders.DTO.OrderItemRequest;
+import com.microfull.orders.DTO.OrderRequest;
 import com.microfull.orders.model.Order;
 import com.microfull.orders.model.OrderItems;
 import com.microfull.orders.repository.OrderRepository;

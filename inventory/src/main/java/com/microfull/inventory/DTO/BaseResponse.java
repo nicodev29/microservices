@@ -1,4 +1,4 @@
-package com.microfull.orders.DTOs;
+package com.microfull.inventory.DTO;
 
 public record BaseResponse(String[] errorMessages) {
 

@@ -1,4 +1,4 @@
-package com.microfull.orders.DTOs;
+package com.microfull.orders.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

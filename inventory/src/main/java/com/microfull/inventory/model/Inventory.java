@@ -1,4 +1,4 @@
-package com.microfull.orders.model;
+package com.microfull.inventory.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,22 +6,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
-@Table(name = "orders")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Builder
-public class Order {
+@Table(name = "inventory")
+public class Inventory {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    private String orderNumber;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItems> orderItems;
+    private String sku;
+    private Long quantity;
 
 }
