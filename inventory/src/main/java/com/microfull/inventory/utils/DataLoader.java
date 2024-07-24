@@ -24,7 +24,8 @@ public class DataLoader implements CommandLineRunner {
                     List.of(
                             Inventory.builder().sku("SKU-1").quantity(10L).build(),
                             Inventory.builder().sku("SKU-2").quantity(20L).build(),
-                            Inventory.builder().sku("SKU-3").quantity(30L).build()
+                            Inventory.builder().sku("SKU-3").quantity(30L).build(),
+                            Inventory.builder().sku("SKU-4").quantity(0L).build()
 
             ));
         }
