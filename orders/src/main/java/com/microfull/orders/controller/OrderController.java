@@ -1,10 +1,13 @@
 package com.microfull.orders.controller;
 
 import com.microfull.orders.DTO.OrderRequest;
+import com.microfull.orders.DTO.OrderResponse;
 import com.microfull.orders.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/order")
@@ -18,6 +21,12 @@ public class OrderController {
     public String placeOrder(@RequestBody OrderRequest orderRequest) {
         this.orderService.placeOrder(orderRequest);
         return "Order placed successfully";
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<OrderResponse> getAllOrders() {
+        return this.orderService.getAllOrders();
     }
 
 }

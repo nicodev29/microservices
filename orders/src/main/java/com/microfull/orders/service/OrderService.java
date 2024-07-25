@@ -1,8 +1,6 @@
 package com.microfull.orders.service;
 
-import com.microfull.orders.DTO.BaseResponse;
-import com.microfull.orders.DTO.OrderItemRequest;
-import com.microfull.orders.DTO.OrderRequest;
+import com.microfull.orders.DTO.*;
 import com.microfull.orders.model.Order;
 import com.microfull.orders.model.OrderItems;
 import com.microfull.orders.repository.OrderRepository;
@@ -12,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -57,6 +56,28 @@ public class OrderService {
             log.error("Error occurred while placing order. Result: {}", result);
             throw new RuntimeException("Error occurred while placing order");
         }
+    }
+
+    public List<OrderResponse> getAllOrders() {
+        List<Order> orders = this.orderRepository.findAll();
+        return orders.stream().map(this::mapToOrderResponse).toList();
+
+    }
+
+    private OrderResponse mapToOrderResponse(Order order) {
+        return new OrderResponse(order.getId(),
+                        order.getOrderNumber(),
+                        order.getOrderItems().
+                        stream().
+                        map(this::mapToOrderItemRequest).
+                        toList());
+    }
+
+    private OrderItemsResponse mapToOrderItemRequest(OrderItems orderItems) {
+        return new OrderItemsResponse(orderItems.getId(),
+                orderItems.getSku(),
+                orderItems.getPrice(),
+                orderItems.getQuantity());
     }
 
 
