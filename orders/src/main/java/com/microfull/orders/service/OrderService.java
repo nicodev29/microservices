@@ -29,7 +29,7 @@ public class OrderService {
             log.info("Checking stock for order: {}", orderRequest);
             result = this.webClientBuilder.build()
                     .post()
-                    .uri("http://localhost:8080/api/inventory/in-stock")
+                    .uri("lb://inventory/api/inventory/in-stock")
                     .bodyValue(orderRequest.getOrderItems())
                     .retrieve()
                     .bodyToMono(BaseResponse.class)

@@ -8,10 +8,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.microfull</groupId>
-	<artifactId>api-gateway</artifactId>
+	<artifactId>discovery-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>api-gateway</name>
-	<description>api-gateway</description>
+	<name>discovery-server</name>
+	<description>discovery-server</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -31,7 +31,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 
 		<dependency>
@@ -44,11 +44,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
